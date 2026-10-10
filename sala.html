@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sala de Mentoria - Raio-X do Negócio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    .mensagem-nova { animation: aparecer 0.4s ease-out; }
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- ========== MENU NO TOPO ========== -->
+  <header class="fixed top-0 left-0 w-full z-40 bg-slate-900/90 backdrop-blur shadow-lg">
+    <nav class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2 px-6 py-4 text-white">
+
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <span class="font-bold text-lg">Raio-X <span class="text-orange-400">do Negócio</span></span>
+      </a>
+
+      <div class="flex gap-5 text-sm">
+        <a href="index.html" class="hover:text-orange-400 transition">Meu Diagnóstico</a>
+        <a href="sala.html" class="text-orange-400 font-semibold">Sala de Mentoria</a>
+        <a href="cursos.html" class="hover:text-orange-400 transition">Minicursos</a>
+        <a href="perfil.html" class="hover:text-orange-400 transition">Perfil</a>
+      </div>
+
+      <a href="index.html#diagnostico" class="hidden md:inline-block bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-sm font-semibold transition">
+        Quero ser mentorado
+      </a>
+    </nav>
+  </header>
+
+
+  <!-- ========== FAIXA COM IMAGEM DE FUNDO ========== -->
+  <section class="relative h-72 bg-cover bg-center"
+           style="background-image: url('fundo.png')">
+    <div class="absolute inset-0 bg-slate-900/70"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 text-white">
+      <p class="text-orange-400 font-semibold text-sm uppercase tracking-widest">Mentoria online</p>
+      <h1 class="text-3xl md:text-4xl font-extrabold mt-2">Sala de Mentoria</h1>
+      <p class="text-slate-200 mt-2">Converse com seu mentor e acompanhe suas tarefas.</p>
+    </div>
+  </section>
+
+
+  <!-- ========== CONTEÚDO: SALA DE MENTORIA ========== -->
+  <main class="max-w-6xl mx-auto px-6 pb-16 -mt-16 relative z-20">
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- ===== COLUNA ESQUERDA: CHAT ===== -->
+      <section class="lg:col-span-2 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col">
+
+        <!-- Cabeçalho do chat -->
+        <div class="flex items-center gap-4 px-6 py-4 border-b border-slate-200 bg-white">
+          <div class="w-11 h-11 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-900">Lucas</p>
+            <p class="text-xs text-slate-500 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span>
+              Estudante de Administração • Mentor
+            </p>
+          </div>
+        </div>
+
+        <!-- Mensagens -->
+        <div id="chat" class="p-6 flex flex-col gap-4 h-[460px] overflow-y-auto bg-slate-50/50" aria-live="polite">
+
+          <!-- Mentor -->
+          <div class="flex items-end gap-3">
+            <div class="w-9 h-9 shrink-0 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-sm">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <div class="bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-5 py-4 max-w-[85%] shadow-sm">
+              Oi! Eu sou o Lucas e vou te ajudar com o seu negócio. 😊 Vi que você quer entender melhor o seu lucro.
+            </div>
+          </div>
+
+          <!-- Empreendedor -->
+          <div class="flex justify-end">
+            <div class="bg-orange-500 text-white rounded-lg rounded-br-none px-5 py-4 max-w-[85%] shadow-md">
+              Oi, Lucas! Isso mesmo. Eu vendo bastante, mas no fim do mês não sobra nada.
+            </div>
+          </div>
+
+          <!-- Mentor -->
+          <div class="flex items-end gap-3">
+            <div class="w-9 h-9 shrink-0 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-sm">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <div class="bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-5 py-4 max-w-[85%] shadow-sm">
+              Isso é muito comum! Você anota o que entra e o que sai do caixa todos os dias?
+            </div>
+          </div>
+
+          <!-- Empreendedor -->
+          <div class="flex justify-end">
+            <div class="bg-orange-500 text-white rounded-lg rounded-br-none px-5 py-4 max-w-[85%] shadow-md">
+              Não anoto não, uso o mesmo dinheiro para tudo.
+            </div>
+          </div>
+
+          <!-- Mentor -->
+          <div class="flex items-end gap-3">
+            <div class="w-9 h-9 shrink-0 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-sm">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <div class="bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-5 py-4 max-w-[85%] shadow-sm">
+              Sem problemas, vamos resolver isso juntos! Deixei algumas tarefas no quadro ao lado. Faça uma de cada vez e me conte como foi. 👍
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Campo para digitar -->
+        <div class="p-4 border-t border-slate-200 bg-white flex gap-3">
+          <input id="campoMensagem" type="text" placeholder="Digite sua mensagem..."
+                 class="flex-1 rounded-lg border border-slate-300 bg-slate-50 px-5 py-3 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200">
+          <button id="botaoEnviar" aria-label="Enviar mensagem"
+                  class="w-14 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- ===== COLUNA DIREITA: QUADRO DE TAREFAS ===== -->
+      <aside class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 flex flex-col">
+
+        <h3 class="text-lg font-semibold text-slate-900 mb-1 tracking-tight">
+          <i class="fa-solid fa-list-check text-orange-500 mr-2"></i>Quadro de Tarefas
+        </h3>
+        <p id="contadorTarefas" class="text-slate-500 text-sm mb-3">0 de 5 tarefas concluídas</p>
+
+        <!-- Barra de progresso -->
+        <div class="w-full h-2 bg-slate-200 rounded-full mb-5 overflow-hidden">
+          <div id="barraProgresso" class="h-full w-0 bg-orange-500 rounded-full transition-all duration-500"></div>
+        </div>
+
+        <!-- Lista de tarefas -->
+        <div class="flex flex-col gap-3">
+
+          <!-- Tarefa 1: checkbox simples -->
+          <label class="flex items-center gap-4 p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-orange-50 hover:border-orange-200 cursor-pointer transition">
+            <input type="checkbox" class="tarefa w-5 h-5 accent-orange-600" checked>
+            <span class="text-sm">Conversar com o mentor sobre o negócio</span>
+          </label>
+
+          <!-- Tarefa 2: modal de vendas (já começa concluída) -->
+          <button type="button" data-modal="modalVendas" data-concluida="true"
+                  class="tarefa-botao flex items-center gap-4 p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-orange-50 hover:border-orange-200 text-left transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+            <i class="icone-status fa-regular fa-circle text-slate-400 text-xl"></i>
+            <span class="texto-tarefa flex-1 text-sm">Anotar todas as vendas da semana</span>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+          </button>
+
+          <!-- Tarefa 3: modal de contas separadas -->
+          <button type="button" data-modal="modalContas" data-concluida="false"
+                  class="tarefa-botao flex items-center gap-4 p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-orange-50 hover:border-orange-200 text-left transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+            <i class="icone-status fa-regular fa-circle text-slate-400 text-xl"></i>
+            <span class="texto-tarefa flex-1 text-sm">Separar o dinheiro da casa do dinheiro do negócio</span>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+          </button>
+
+          <!-- Tarefa 4: modal da calculadora de custos -->
+          <button type="button" data-modal="modalCustos" data-concluida="false"
+                  class="tarefa-botao flex items-center gap-4 p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-orange-50 hover:border-orange-200 text-left transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+            <i class="icone-status fa-regular fa-circle text-slate-400 text-xl"></i>
+            <span class="texto-tarefa flex-1 text-sm">Listar os custos de 1 produto</span>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+          </button>
+
+          <!-- Tarefa 5: modal do minicurso -->
+          <button type="button" data-modal="modalVideo" data-concluida="false"
+                  class="tarefa-botao flex items-center gap-4 p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-orange-50 hover:border-orange-200 text-left transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+            <i class="icone-status fa-regular fa-circle text-slate-400 text-xl"></i>
+            <span class="texto-tarefa flex-1 text-sm">Assistir ao minicurso "Primeiros passos"</span>
+            <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+          </button>
+
+        </div>
+
+        <!-- Botão de vídeo chamada -->
+        <button id="botaoVideo"
+                class="mt-6 flex items-center justify-center gap-3 px-5 py-4 rounded-lg bg-orange-500 text-white font-semibold shadow-lg shadow-orange-500/30 hover:bg-orange-600 transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+          <i class="fa-solid fa-video"></i> Agendar Vídeo Chamada
+        </button>
+
+        <p id="avisoVideo" class="hidden mt-3 text-center text-orange-800 bg-orange-50 border border-orange-200 rounded-lg p-3 text-sm">
+          <i class="fa-solid fa-circle-check mr-1"></i> Pedido enviado! O Lucas vai confirmar o horário.
+        </p>
+
+      </aside>
+    </div>
+  </main>
+
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white">Raio-X <span class="text-orange-400">do Negócio</span></p>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-orange-400">Meu Diagnóstico</a>
+        <a href="sala.html" class="hover:text-orange-400">Sala de Mentoria</a>
+        <a href="cursos.html" class="hover:text-orange-400">Minicursos</a>
+        <a href="perfil.html" class="hover:text-orange-400">Perfil</a>
+      </div>
+      <p>© 2026 Raio-X do Negócio</p>
+    </div>
+  </footer>
+
+
+  <!-- ========== JANELA DO BOT DE SUPORTE (Guia Inteligente) ========== -->
+  <div id="janelaAjuda"
+       role="dialog"
+       aria-label="Guia Inteligente"
+       class="hidden fixed bottom-28 right-6 w-[calc(100%-3rem)] max-w-sm bg-white rounded-lg shadow-2xl border border-slate-200 z-40 flex flex-col overflow-hidden mensagem-nova">
+
+    <div class="flex items-center justify-between px-5 py-4 bg-slate-900 text-white border-b-4 border-orange-500">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-robot text-lg text-orange-400"></i>
+        <h3 class="font-semibold text-base tracking-tight">Guia Inteligente</h3>
+      </div>
+      <button id="botaoFecharAjuda"
+              aria-label="Fechar ajuda"
+              class="w-9 h-9 rounded-md hover:bg-slate-800 transition flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <div id="chatAjuda" class="p-4 flex flex-col gap-3 h-72 overflow-y-auto bg-slate-50" aria-live="polite">
+      <div class="flex items-end gap-2">
+        <div class="w-8 h-8 shrink-0 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-xs">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-4 py-3 max-w-[85%] shadow-sm text-sm">
+          Olá! Como posso te ajudar a usar a plataforma hoje? Pode digitar ou me mandar um áudio!
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2 p-3 border-t border-slate-200 bg-white">
+      <input id="campoAjuda"
+             type="text"
+             placeholder="Digite sua dúvida..."
+             class="flex-1 min-w-0 px-4 py-3 rounded-lg bg-slate-100 border border-slate-200 text-sm focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200">
+
+      <button id="botaoMicrofone"
+              aria-label="Enviar áudio"
+              class="w-14 h-14 shrink-0 rounded-lg bg-orange-50 border border-orange-200 text-orange-600 text-2xl flex items-center justify-center hover:bg-orange-100 transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+        <i class="fa-solid fa-microphone"></i>
+      </button>
+
+      <button id="botaoEnviarAjuda"
+              aria-label="Enviar mensagem de ajuda"
+              class="w-12 h-12 shrink-0 rounded-lg bg-orange-500 text-white text-base flex items-center justify-center hover:bg-orange-600 transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== BOTÃO FLUTUANTE (FAB) ========== -->
+  <button id="botaoAjuda"
+          aria-label="Ajuda e suporte"
+          class="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-orange-500 text-white text-2xl shadow-xl hover:bg-orange-600 hover:scale-105 transition focus:outline-none focus:ring-4 focus:ring-orange-300 z-40">
+    <i class="fa-solid fa-question"></i>
+  </button>
+
+
+  <!-- ====================================================== -->
+  <!-- ==================== MODAIS (ocultos) ================ -->
+  <!-- ====================================================== -->
+
+  <!-- ===== MODAL 1: Relatório de Vendas ===== -->
+  <div id="modalVendas" class="hidden fixed inset-0 z-50 bg-slate-900/70 items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-6 relative border-t-4 border-orange-500">
+
+      <button type="button" data-fechar="modalVendas" aria-label="Fechar"
+              class="absolute top-4 right-4 w-10 h-10 rounded-md text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <h3 class="text-lg font-semibold text-slate-900 mb-4 pr-10 tracking-tight">
+        <i class="fa-solid fa-file-invoice-dollar text-orange-500 mr-2"></i>Relatório de Vendas
+      </h3>
+
+      <label for="campoVendas" class="block text-slate-600 text-sm mb-2">
+        Qual foi o valor total das vendas nesta semana? (R$)
+      </label>
+      <input id="campoVendas" type="number" min="0" step="0.01" placeholder="Ex: 1500"
+             class="w-full rounded-lg border border-slate-300 bg-slate-50 px-5 py-3 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200">
+
+      <p id="erroVendas" class="hidden mt-2 text-red-600 text-sm">Digite um valor para continuar.</p>
+
+      <button id="botaoEnviarVendas" type="button"
+              class="mt-6 w-full px-5 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+        Enviar Direto para o Mentor
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== MODAL 2: Contas Separadas ===== -->
+  <div id="modalContas" class="hidden fixed inset-0 z-50 bg-slate-900/70 items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-6 relative border-t-4 border-orange-500">
+
+      <button type="button" data-fechar="modalContas" aria-label="Fechar"
+              class="absolute top-4 right-4 w-10 h-10 rounded-md text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <h3 class="text-lg font-semibold text-slate-900 mb-4 pr-10 tracking-tight">
+        <i class="fa-solid fa-wallet text-orange-500 mr-2"></i>Desafio Financeiro: Contas Separadas
+      </h3>
+
+      <div class="flex flex-col gap-3">
+        <label class="flex items-center gap-4 p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-orange-50 hover:border-orange-200 cursor-pointer transition">
+          <input id="checkConta1" type="checkbox" class="w-5 h-5 accent-orange-600">
+          <span class="text-sm">Abri uma conta digital só para a empresa</span>
+        </label>
+
+        <label class="flex items-center gap-4 p-4 rounded-lg border border-slate-200 bg-slate-50 hover:bg-orange-50 hover:border-orange-200 cursor-pointer transition">
+          <input id="checkConta2" type="checkbox" class="w-5 h-5 accent-orange-600">
+          <span class="text-sm">Parei de pagar contas de casa com o dinheiro do caixa</span>
+        </label>
+      </div>
+
+      <p id="erroContas" class="hidden mt-2 text-red-600 text-sm">Marque as duas opções para confirmar.</p>
+
+      <button id="botaoConfirmarContas" type="button"
+              class="mt-6 w-full px-5 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+        Confirmar Mudança
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== MODAL 3: Calculadora Rápida de Custos ===== -->
+  <div id="modalCustos" class="hidden fixed inset-0 z-50 bg-slate-900/70 items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-2xl w-full max-w-md p-6 relative border-t-4 border-orange-500">
+
+      <button type="button" data-fechar="modalCustos" aria-label="Fechar"
+              class="absolute top-4 right-4 w-10 h-10 rounded-md text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <h3 class="text-lg font-semibold text-slate-900 mb-4 pr-10 tracking-tight">
+        <i class="fa-solid fa-calculator text-orange-500 mr-2"></i>Calculadora Rápida de Custos
+      </h3>
+
+      <div class="flex flex-col gap-4">
+        <div>
+          <label for="campoNomeProduto" class="block text-slate-600 text-sm mb-1">Nome do Produto</label>
+          <input id="campoNomeProduto" type="text" placeholder="Ex: Bolo de pote"
+                 class="w-full rounded-lg border border-slate-300 bg-slate-50 px-5 py-3 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200">
+        </div>
+
+        <div>
+          <label for="campoIngredientes" class="block text-slate-600 text-sm mb-1">Custo dos Ingredientes (R$)</label>
+          <input id="campoIngredientes" type="number" min="0" step="0.01" placeholder="Ex: 4.50"
+                 class="w-full rounded-lg border border-slate-300 bg-slate-50 px-5 py-3 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200">
+        </div>
+
+        <div>
+          <label for="campoEmbalagem" class="block text-slate-600 text-sm mb-1">Custo da Embalagem (R$)</label>
+          <input id="campoEmbalagem" type="number" min="0" step="0.01" placeholder="Ex: 1.20"
+                 class="w-full rounded-lg border border-slate-300 bg-slate-50 px-5 py-3 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200">
+        </div>
+      </div>
+
+      <p id="erroCustos" class="hidden mt-2 text-red-600 text-sm">Preencha os 3 campos para calcular.</p>
+
+      <button id="botaoCalcularCustos" type="button"
+              class="mt-6 w-full px-5 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+        Calcular e Enviar
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== MODAL 4: Minicurso ===== -->
+  <div id="modalVideo" class="hidden fixed inset-0 z-50 bg-slate-900/70 items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-2xl w-full max-w-lg p-6 relative border-t-4 border-orange-500">
+
+      <button type="button" data-fechar="modalVideo" aria-label="Fechar"
+              class="absolute top-4 right-4 w-10 h-10 rounded-md text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <h3 class="text-lg font-semibold text-slate-900 mb-4 pr-10 tracking-tight">
+        <i class="fa-solid fa-graduation-cap text-orange-500 mr-2"></i>Minicurso Recomendado pelo Mentor
+      </h3>
+
+      <div class="w-full aspect-video bg-slate-900 rounded-lg flex items-center justify-center">
+        <i class="fa-solid fa-circle-play text-orange-500 text-7xl"></i>
+      </div>
+      <p class="text-slate-500 text-sm mt-3">Primeiros passos para organizar o seu negócio</p>
+
+      <button id="botaoConcluirAula" type="button"
+              class="mt-6 w-full px-5 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition focus:outline-none focus:ring-4 focus:ring-orange-200">
+        Marcar Aula como Concluída
+      </button>
+    </div>
+  </div>
+
+
+  <script>
+    // ===== Chat =====
+    const chat = document.getElementById("chat");
+    const campoMensagem = document.getElementById("campoMensagem");
+    const botaoEnviar = document.getElementById("botaoEnviar");
+
+    chat.scrollTop = chat.scrollHeight;
+
+    function mostrarMensagemDoUsuario(texto) {
+      chat.insertAdjacentHTML("beforeend", `
+        <div class="flex justify-end mensagem-nova">
+          <div class="bg-orange-500 text-white rounded-lg rounded-br-none px-5 py-4 max-w-[85%] shadow-md"></div>
+        </div>`);
+      chat.lastElementChild.firstElementChild.textContent = texto;
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function mostrarMensagemDoMentor(texto) {
+      chat.insertAdjacentHTML("beforeend", `
+        <div class="flex items-end gap-3 mensagem-nova">
+          <div class="w-9 h-9 shrink-0 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <div class="bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-5 py-4 max-w-[85%] shadow-sm"></div>
+        </div>`);
+      chat.lastElementChild.lastElementChild.textContent = texto;
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function enviarMensagem() {
+      const texto = campoMensagem.value.trim();
+      if (texto === "") return;
+
+      mostrarMensagemDoUsuario(texto);
+      campoMensagem.value = "";
+
+      setTimeout(function () {
+        mostrarMensagemDoMentor("Boa pergunta! Vamos ver isso juntos na nossa vídeo chamada. 👍");
+      }, 1000);
+    }
+
+    botaoEnviar.addEventListener("click", enviarMensagem);
+    campoMensagem.addEventListener("keydown", function (evento) {
+      if (evento.key === "Enter") enviarMensagem();
+    });
+
+    // ===== Checklist de tarefas =====
+    const caixas = document.querySelectorAll(".tarefa");
+    const botoesTarefa = document.querySelectorAll(".tarefa-botao");
+    const contadorTarefas = document.getElementById("contadorTarefas");
+    const barraProgresso = document.getElementById("barraProgresso");
+
+    function atualizarTarefas() {
+      let feitas = 0;
+
+      caixas.forEach(function (caixa) {
+        const texto = caixa.nextElementSibling;
+        if (caixa.checked) {
+          feitas++;
+          texto.classList.add("line-through", "text-slate-400");
+        } else {
+          texto.classList.remove("line-through", "text-slate-400");
+        }
+      });
+
+      botoesTarefa.forEach(function (botao) {
+        const icone = botao.querySelector(".icone-status");
+        const texto = botao.querySelector(".texto-tarefa");
+
+        if (botao.dataset.concluida === "true") {
+          feitas++;
+          icone.className = "icone-status fa-solid fa-circle-check text-orange-500 text-xl";
+          texto.classList.add("line-through", "text-slate-400");
+        } else {
+          icone.className = "icone-status fa-regular fa-circle text-slate-400 text-xl";
+          texto.classList.remove("line-through", "text-slate-400");
+        }
+      });
+
+      const total = caixas.length + botoesTarefa.length;
+      contadorTarefas.textContent = feitas + " de " + total + " tarefas concluídas";
+      barraProgresso.style.width = (feitas / total) * 100 + "%";
+    }
+
+    caixas.forEach(function (caixa) {
+      caixa.addEventListener("change", atualizarTarefas);
+    });
+
+    function marcarTarefaConcluida(idDoModal) {
+      const botao = document.querySelector('[data-modal="' + idDoModal + '"]');
+      botao.dataset.concluida = "true";
+      atualizarTarefas();
+    }
+
+    atualizarTarefas();
+
+    // ===== Modais: abrir e fechar =====
+    function abrirModal(idDoModal) {
+      const modal = document.getElementById(idDoModal);
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function fecharModal(idDoModal) {
+      const modal = document.getElementById(idDoModal);
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    botoesTarefa.forEach(function (botao) {
+      botao.addEventListener("click", function () {
+        abrirModal(botao.dataset.modal);
+      });
+    });
+
+    document.querySelectorAll("[data-fechar]").forEach(function (botaoFechar) {
+      botaoFechar.addEventListener("click", function () {
+        fecharModal(botaoFechar.dataset.fechar);
+      });
+    });
+
+    ["modalVendas", "modalContas", "modalCustos", "modalVideo"].forEach(function (id) {
+      document.getElementById(id).addEventListener("click", function (evento) {
+        if (evento.target === evento.currentTarget) fecharModal(id);
+      });
+    });
+
+    document.addEventListener("keydown", function (evento) {
+      if (evento.key === "Escape") {
+        ["modalVendas", "modalContas", "modalCustos", "modalVideo"].forEach(fecharModal);
+      }
+    });
+
+    // ===== Ações de cada modal =====
+
+    // Modal 1: Vendas
+    document.getElementById("botaoEnviarVendas").addEventListener("click", function () {
+      const campo = document.getElementById("campoVendas");
+      const erro = document.getElementById("erroVendas");
+
+      if (campo.value === "") {
+        erro.classList.remove("hidden");
+        return;
+      }
+
+      erro.classList.add("hidden");
+      mostrarMensagemDoUsuario("Total de vendas da semana: R$ " + campo.value);
+      campo.value = "";
+      marcarTarefaConcluida("modalVendas");
+      fecharModal("modalVendas");
+    });
+
+    // Modal 2: Contas separadas
+    document.getElementById("botaoConfirmarContas").addEventListener("click", function () {
+      const conta1 = document.getElementById("checkConta1");
+      const conta2 = document.getElementById("checkConta2");
+      const erro = document.getElementById("erroContas");
+
+      if (!conta1.checked || !conta2.checked) {
+        erro.classList.remove("hidden");
+        return;
+      }
+
+      erro.classList.add("hidden");
+      mostrarMensagemDoUsuario("Separei as contas da casa e do negócio! ✅");
+      marcarTarefaConcluida("modalContas");
+      fecharModal("modalContas");
+    });
+
+    // Modal 3: Calculadora de custos
+    document.getElementById("botaoCalcularCustos").addEventListener("click", function () {
+      const nome = document.getElementById("campoNomeProduto");
+      const ingredientes = document.getElementById("campoIngredientes");
+      const embalagem = document.getElementById("campoEmbalagem");
+      const erro = document.getElementById("erroCustos");
+
+      if (nome.value.trim() === "" || ingredientes.value === "" || embalagem.value === "") {
+        erro.classList.remove("hidden");
+        return;
+      }
+
+      erro.classList.add("hidden");
+
+      const total = Number(ingredientes.value) + Number(embalagem.value);
+      mostrarMensagemDoUsuario(
+        "Custo de 1 " + nome.value.trim() + ": R$ " + total.toFixed(2).replace(".", ",")
+      );
+
+      nome.value = "";
+      ingredientes.value = "";
+      embalagem.value = "";
+      marcarTarefaConcluida("modalCustos");
+      fecharModal("modalCustos");
+    });
+
+    // Modal 4: Minicurso
+    document.getElementById("botaoConcluirAula").addEventListener("click", function () {
+      marcarTarefaConcluida("modalVideo");
+      fecharModal("modalVideo");
+    });
+
+    // ===== Botão de vídeo chamada =====
+    document.getElementById("botaoVideo").addEventListener("click", function () {
+      document.getElementById("avisoVideo").classList.remove("hidden");
+    });
+
+    // ===== Bot de Suporte (Guia Inteligente) =====
+    const botaoAjuda = document.getElementById("botaoAjuda");
+    const janelaAjuda = document.getElementById("janelaAjuda");
+    const botaoFecharAjuda = document.getElementById("botaoFecharAjuda");
+    const chatAjuda = document.getElementById("chatAjuda");
+    const campoAjuda = document.getElementById("campoAjuda");
+    const botaoEnviarAjuda = document.getElementById("botaoEnviarAjuda");
+    const botaoMicrofone = document.getElementById("botaoMicrofone");
+
+    botaoAjuda.addEventListener("click", function () {
+      janelaAjuda.classList.toggle("hidden");
+    });
+
+    botaoFecharAjuda.addEventListener("click", function () {
+      janelaAjuda.classList.add("hidden");
+    });
+
+    function adicionarBalaoAjuda(texto, ehUsuario) {
+      const linha = document.createElement("div");
+      const balao = document.createElement("div");
+      balao.textContent = texto;
+
+      if (ehUsuario) {
+        linha.className = "flex justify-end mensagem-nova";
+        balao.className = "bg-orange-500 text-white rounded-lg rounded-br-none px-4 py-3 max-w-[85%] shadow-sm text-sm";
+      } else {
+        linha.className = "flex items-end gap-2 mensagem-nova";
+        balao.className = "bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-4 py-3 max-w-[85%] shadow-sm text-sm";
+      }
+
+      linha.appendChild(balao);
+      chatAjuda.appendChild(linha);
+      chatAjuda.scrollTop = chatAjuda.scrollHeight;
+    }
+
+    function enviarTextoAjuda() {
+      const texto = campoAjuda.value.trim();
+      if (texto === "") {
+        return;
+      }
+
+      adicionarBalaoAjuda(texto, true);
+      campoAjuda.value = "";
+
+      setTimeout(function () {
+        adicionarBalaoAjuda("Obrigado pela pergunta! Em breve vou te explicar como isso funciona. 😊", false);
+      }, 800);
+    }
+
+    botaoEnviarAjuda.addEventListener("click", enviarTextoAjuda);
+
+    campoAjuda.addEventListener("keydown", function (evento) {
+      if (evento.key === "Enter") {
+        enviarTextoAjuda();
+      }
+    });
+
+    botaoMicrofone.addEventListener("click", function () {
+      adicionarBalaoAjuda("🎤 Áudio enviado", true);
+
+      setTimeout(function () {
+        adicionarBalaoAjuda("Recebi o seu áudio! Já estou ouvindo e te respondo em instantes. 🎧", false);
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>

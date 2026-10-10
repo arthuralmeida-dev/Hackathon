@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raio-X do Negócio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    html { scroll-behavior: smooth; }
+
+    .mensagem-nova { animation: aparecer 0.4s ease-out; }
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-800 antialiased">
+
+  <!-- ========== MENU NO TOPO ========== -->
+  <header class="fixed top-0 left-0 w-full z-40 bg-slate-900/90 backdrop-blur shadow-lg">
+    <nav class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2 px-6 py-4 text-white">
+
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <span class="font-bold text-lg">Raio-X <span class="text-orange-400">do Negócio</span></span>
+      </a>
+
+      <div class="flex gap-5 text-sm">
+        <a href="index.html" class="text-orange-400 font-semibold">Meu Diagnóstico</a>
+        <a href="sala.html" class="hover:text-orange-400 transition">Sala de Mentoria</a>
+        <a href="cursos.html" class="hover:text-orange-400 transition">Minicursos</a>
+        <a href="perfil.html" class="hover:text-orange-400 transition">Perfil</a>
+      </div>
+
+      <a href="#diagnostico" class="hidden md:inline-block bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg text-sm font-semibold transition">
+        Quero ser mentorado
+      </a>
+    </nav>
+  </header>
+
+
+  <!-- ========== HERO COM IMAGEM DE FUNDO ========== -->
+  <section class="relative min-h-screen flex items-center bg-cover bg-center"
+           style="background-image: url('fundo.png')">
+
+    <!-- Camada escura para o texto ficar legível -->
+    <div class="absolute inset-0 bg-slate-900/70"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-16 text-white">
+      <span class="inline-block bg-orange-500/20 text-orange-300 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+        Mentoria com universitários para microempreendedores
+      </span>
+
+      <h1 class="text-4xl md:text-6xl font-extrabold max-w-3xl leading-tight">
+        O impulso que o seu pequeno negócio precisa!
+      </h1>
+
+      <p class="mt-6 text-lg text-slate-200 max-w-xl">
+        Conectamos microempreendedores a universitários que ajudam você a organizar as finanças e fazer o negócio crescer.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#diagnostico" class="bg-orange-500 hover:bg-orange-600 px-7 py-3 rounded-lg font-semibold shadow-lg shadow-orange-500/30 transition">
+          Quero ser mentorado
+        </a>
+        <a href="#como-funciona" class="border border-white hover:bg-white hover:text-slate-900 px-7 py-3 rounded-lg font-semibold transition">
+          Como funciona
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FAIXA DE DESTAQUES ========== -->
+  <section class="bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-extrabold text-orange-400">100%</p>
+        <p class="font-semibold mt-1">Online</p>
+        <p class="text-sm text-slate-400 mt-1">Converse com seu mentor de onde você estiver.</p>
+      </div>
+      <div>
+        <p class="text-4xl font-extrabold text-orange-400">5 min</p>
+        <p class="font-semibold mt-1">Diagnóstico rápido</p>
+        <p class="text-sm text-slate-400 mt-1">Uma conversa simples para entender o seu desafio.</p>
+      </div>
+      <div>
+        <p class="text-4xl font-extrabold text-orange-400">+ Mentores</p>
+        <p class="font-semibold mt-1">Universitários preparados</p>
+        <p class="text-sm text-slate-400 mt-1">Estudantes prontos para ajudar de verdade.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== DIAGNÓSTICO (CHAT DE TRIAGEM) ========== -->
+  <section id="diagnostico" class="bg-slate-50 py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="text-center mb-10">
+        <p class="text-orange-500 font-semibold text-sm uppercase tracking-widest">Meu Diagnóstico</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Responda a conversa abaixo</h2>
+        <p class="text-slate-500 mt-3">É rapidinho! Assim encontramos o mentor certo para você.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col">
+
+        <!-- Cabeçalho do chat -->
+        <div class="flex items-center gap-4 px-6 py-4 border-b border-slate-200">
+          <div class="w-11 h-11 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-900">Assistente de Triagem</p>
+            <p class="text-xs text-slate-500 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span> Online agora
+            </p>
+          </div>
+        </div>
+
+        <!-- Mensagens -->
+        <div id="chat" class="p-6 flex flex-col gap-4 min-h-[280px] bg-slate-50/50" aria-live="polite">
+          <div class="flex items-end gap-3 mensagem-nova">
+            <div class="w-9 h-9 shrink-0 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-sm">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div class="bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-5 py-4 max-w-[85%] shadow-sm">
+              Olá! Sou o assistente de triagem. Para conectá-lo aos melhores universitários, qual o seu maior desafio financeiro hoje?
+            </div>
+          </div>
+        </div>
+
+        <!-- Respostas rápidas -->
+        <div id="respostas" class="px-6 py-5 border-t border-slate-200 bg-white flex flex-col sm:flex-row gap-3">
+          <button class="resposta flex-1 flex items-center justify-center gap-3 px-5 py-3 rounded-lg bg-orange-500 text-white font-semibold shadow-sm hover:bg-orange-600 transition">
+            <i class="fa-solid fa-magnifying-glass-dollar"></i> Não vejo meu lucro
+          </button>
+          <button class="resposta flex-1 flex items-center justify-center gap-3 px-5 py-3 rounded-lg bg-orange-500 text-white font-semibold shadow-sm hover:bg-orange-600 transition">
+            <i class="fa-solid fa-wallet"></i> Contas misturadas
+          </button>
+          <button class="resposta flex-1 flex items-center justify-center gap-3 px-5 py-3 rounded-lg bg-orange-500 text-white font-semibold shadow-sm hover:bg-orange-600 transition">
+            <i class="fa-solid fa-tags"></i> Precificação
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== COMO FUNCIONA (PASSOS NUMERADOS) ========== -->
+  <section id="como-funciona" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-12">
+        <p class="text-orange-500 font-semibold text-sm uppercase tracking-widest">Como funciona</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Quatro passos para o seu negócio crescer</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+          <p class="text-5xl font-extrabold text-orange-500/30">001</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-2">Diagnóstico</h3>
+          <p class="text-sm text-slate-500 mt-2">Você conversa com o assistente e conta qual é o seu maior desafio.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+          <p class="text-5xl font-extrabold text-orange-500/30">002</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-2">Conexão</h3>
+          <p class="text-sm text-slate-500 mt-2">Encontramos um universitário especialista no seu problema.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+          <p class="text-5xl font-extrabold text-orange-500/30">003</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-2">Mentoria</h3>
+          <p class="text-sm text-slate-500 mt-2">Vocês conversam na Sala de Mentoria e criam um plano de ação.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+          <p class="text-5xl font-extrabold text-orange-500/30">004</p>
+          <h3 class="text-lg font-bold text-slate-900 mt-2">Conquistas</h3>
+          <p class="text-sm text-slate-500 mt-2">Você completa tarefas, ganha selos e acompanha a saúde do negócio.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== DIFERENCIAIS ========== -->
+  <section class="bg-slate-50 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-12">
+        <p class="text-orange-500 font-semibold text-sm uppercase tracking-widest">Nossos diferenciais</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Por que escolher o Raio-X?</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-orange-500/30">
+            <i class="fa-solid fa-handshake-angle"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 mt-4">Mentoria personalizada</h3>
+          <p class="text-sm text-slate-500 mt-2">Um universitário preparado para ajudar com o desafio do seu negócio.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-orange-500/30">
+            <i class="fa-solid fa-gauge-high"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 mt-4">Termômetro do negócio</h3>
+          <p class="text-sm text-slate-500 mt-2">Acompanhe a saúde financeira, o marketing e a operação.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-orange-500/30">
+            <i class="fa-solid fa-medal"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 mt-4">Selos de conquista</h3>
+          <p class="text-sm text-slate-500 mt-2">Cada tarefa concluída vira um selo. Aprender fica mais divertido.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== CHAMADA FINAL ========== -->
+  <section class="bg-slate-900 text-white py-20 px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold">Vamos pisar fundo no acelerador?</h2>
+    <p class="text-slate-300 mt-4 max-w-xl mx-auto">Faça o seu diagnóstico agora e comece a transformar o seu negócio.</p>
+    <a href="#diagnostico" class="inline-block mt-8 bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg font-semibold shadow-lg shadow-orange-500/30 transition">
+      Fazer meu diagnóstico
+    </a>
+  </section>
+
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+      <p class="font-bold text-white">Raio-X <span class="text-orange-400">do Negócio</span></p>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-orange-400">Meu Diagnóstico</a>
+        <a href="sala.html" class="hover:text-orange-400">Sala de Mentoria</a>
+        <a href="cursos.html" class="hover:text-orange-400">Minicursos</a>
+        <a href="perfil.html" class="hover:text-orange-400">Perfil</a>
+      </div>
+      <p>© 2026 Raio-X do Negócio</p>
+    </div>
+  </footer>
+
+
+  <!-- ========== JANELA DO BOT DE SUPORTE (Guia Inteligente) ========== -->
+  <div id="janelaAjuda"
+       role="dialog"
+       aria-label="Guia Inteligente"
+       class="hidden fixed bottom-28 right-6 w-[calc(100%-3rem)] max-w-sm bg-white rounded-lg shadow-2xl border border-slate-200 z-50 flex flex-col overflow-hidden mensagem-nova">
+
+    <div class="flex items-center justify-between px-5 py-4 bg-slate-900 text-white border-b-4 border-orange-500">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-robot text-lg text-orange-400"></i>
+        <h3 class="font-semibold text-base">Guia Inteligente</h3>
+      </div>
+      <button id="botaoFechar" aria-label="Fechar ajuda"
+              class="w-9 h-9 rounded-md hover:bg-slate-800 transition flex items-center justify-center">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <div id="chatAjuda" class="p-4 flex flex-col gap-3 h-72 overflow-y-auto bg-slate-50" aria-live="polite">
+      <div class="flex items-end gap-2">
+        <div class="w-8 h-8 shrink-0 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-xs">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-4 py-3 max-w-[85%] shadow-sm text-sm">
+          Olá! Como posso te ajudar a usar a plataforma hoje? Pode digitar ou me mandar um áudio!
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2 p-3 border-t border-slate-200 bg-white">
+      <input id="campoAjuda" type="text" placeholder="Digite sua dúvida..."
+             class="flex-1 min-w-0 px-4 py-3 rounded-lg bg-slate-100 border border-slate-200 text-sm focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200">
+
+      <button id="botaoMicrofone" aria-label="Enviar áudio"
+              class="w-14 h-14 shrink-0 rounded-lg bg-orange-50 border border-orange-200 text-orange-600 text-2xl flex items-center justify-center hover:bg-orange-100 transition">
+        <i class="fa-solid fa-microphone"></i>
+      </button>
+
+      <button id="botaoEnviar" aria-label="Enviar mensagem"
+              class="w-12 h-12 shrink-0 rounded-lg bg-orange-500 text-white flex items-center justify-center hover:bg-orange-600 transition">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== BOTÃO FLUTUANTE ========== -->
+  <button id="botaoAjuda" aria-label="Ajuda e suporte"
+          class="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-orange-500 text-white text-2xl shadow-xl hover:bg-orange-600 hover:scale-105 transition z-50">
+    <i class="fa-solid fa-question"></i>
+  </button>
+
+
+  <script>
+    // ===== Chat de triagem =====
+    const chat = document.getElementById("chat");
+    const areaRespostas = document.getElementById("respostas");
+    const botoes = document.querySelectorAll(".resposta");
+
+    function mostrarMensagemUsuario(texto) {
+      const html = `
+        <div class="flex justify-end mensagem-nova">
+          <div class="bg-orange-500 text-white rounded-lg rounded-br-none px-5 py-4 max-w-[85%] shadow-md">
+            ${texto}
+          </div>
+        </div>`;
+      chat.insertAdjacentHTML("beforeend", html);
+    }
+
+    function mostrarMensagemIA(texto) {
+      const html = `
+        <div class="flex items-end gap-3 mensagem-nova">
+          <div class="w-9 h-9 shrink-0 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-5 py-4 max-w-[85%] shadow-sm">
+            ${texto}
+          </div>
+        </div>`;
+      chat.insertAdjacentHTML("beforeend", html);
+    }
+
+    botoes.forEach(function (botao) {
+      botao.addEventListener("click", function () {
+        const textoEscolhido = botao.innerText.trim();
+
+        mostrarMensagemUsuario(textoEscolhido);
+        areaRespostas.classList.add("hidden");
+
+        setTimeout(function () {
+          mostrarMensagemIA("Entendi! Vou procurar universitários que sejam especialistas nisso para ajudar você. 😊");
+        }, 1000);
+      });
+    });
+
+    // ===== Bot de Suporte (Guia Inteligente) =====
+    const botaoAjuda = document.getElementById("botaoAjuda");
+    const janelaAjuda = document.getElementById("janelaAjuda");
+    const botaoFechar = document.getElementById("botaoFechar");
+    const chatAjuda = document.getElementById("chatAjuda");
+    const campoAjuda = document.getElementById("campoAjuda");
+    const botaoEnviar = document.getElementById("botaoEnviar");
+    const botaoMicrofone = document.getElementById("botaoMicrofone");
+
+    botaoAjuda.addEventListener("click", function () {
+      janelaAjuda.classList.toggle("hidden");
+    });
+
+    botaoFechar.addEventListener("click", function () {
+      janelaAjuda.classList.add("hidden");
+    });
+
+    function adicionarBalaoAjuda(texto, ehUsuario) {
+      const linha = document.createElement("div");
+      const balao = document.createElement("div");
+      balao.textContent = texto;
+
+      if (ehUsuario) {
+        linha.className = "flex justify-end mensagem-nova";
+        balao.className = "bg-orange-500 text-white rounded-lg rounded-br-none px-4 py-3 max-w-[85%] shadow-sm text-sm";
+      } else {
+        linha.className = "flex items-end gap-2 mensagem-nova";
+        balao.className = "bg-white border border-slate-200 text-slate-800 rounded-lg rounded-bl-none px-4 py-3 max-w-[85%] shadow-sm text-sm";
+      }
+
+      linha.appendChild(balao);
+      chatAjuda.appendChild(linha);
+      chatAjuda.scrollTop = chatAjuda.scrollHeight;
+    }
+
+    function enviarTexto() {
+      const texto = campoAjuda.value.trim();
+      if (texto === "") {
+        return;
+      }
+
+      adicionarBalaoAjuda(texto, true);
+      campoAjuda.value = "";
+
+      setTimeout(function () {
+        adicionarBalaoAjuda("Obrigado pela pergunta! Em breve vou te explicar como isso funciona. 😊", false);
+      }, 800);
+    }
+
+    botaoEnviar.addEventListener("click", enviarTexto);
+
+    campoAjuda.addEventListener("keydown", function (evento) {
+      if (evento.key === "Enter") {
+        enviarTexto();
+      }
+    });
+
+    botaoMicrofone.addEventListener("click", function () {
+      adicionarBalaoAjuda("🎤 Áudio enviado", true);
+
+      setTimeout(function () {
+        adicionarBalaoAjuda("Recebi o seu áudio! Já estou ouvindo e te respondo em instantes. 🎧", false);
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
